@@ -1027,4 +1027,9 @@ section .container {
 }
 .credits a:hover {
   color: #fff;
-} img { max-height: 400px; max-widht:500px;}
+} 
+img { 
+  max-height: 400px; 
+  max-width:500px;
+}
+
