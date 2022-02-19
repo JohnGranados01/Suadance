@@ -68,7 +68,7 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Agregar estudiante ======= -->
+  <!-- ======= Add Student ======= -->
   <section id="add" class="add">
     <div class="container">
 
@@ -113,12 +113,60 @@
           </div>
         </div>
         <div class="d-grid gap-2 col-12 mx-auto">
-          <button class="btn btn-primary" type="button">Agregar estudiante</button>
+          <button class="btn btn-warning" type="button">Agregar estudiante</button>
         </div>
       </form>
 
     </div>
-  </section><!-- End Contact Section -->
+
+    <div class="row mt-2">
+
+      <form action="forms/contact.php"  class="form-horizontal" method="post" role="form" style=" width: 35vw; margin-left : 23.5vw;">
+        <div class="row">
+          <div class="col-md-12 form-group" style="text-align: center">
+            <br>
+            <br>
+              <h2>Categor&iacute;a</h2>
+            <br>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Seleccionar categoría</option>
+              <option value="1">Junior</option>
+              <option value="2">Juvenil</option>
+            </select>
+            <br>
+          </div>
+          <div class="col-md-12 form-group">
+              <label>Foto del estudiante</label>
+              <input type="file" class="form-control" name="porfile" id="file">
+              <br>
+          </div>
+          <div class="col-md-12 form-group">
+          <br>
+            <h3>Acudiente</h3>
+          <br>
+          </div>
+          <div class="col-md-12 form-group">
+            <label>Nombres</label>
+            <input type="text" name="nameParent" class="form-control" id="nameParent" placeholder="Nombres">
+            <br>
+          </div>
+          <div class="col-md-12 form-group">
+            <label>Apellidos</label>
+            <input type="text" name="lastNameParent" class="form-control" id="lastNameParent" placeholder="Apellidos">
+            <br>
+          </div>
+          <div class="col-md-12 form-group mt-3 mt-md-0">
+              <label>Tel&eacute;fono</label>
+            <input type="tel" class="form-control" name="phoneParent" id="phoneParent" placeholder="Número de teléfono">
+            <br>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-12 mx-auto">
+          <button class="btn btn-warning" type="button">Finalizar registro</button>
+        </div>
+        </form>
+
+  </section><!-- End Add Student -->
 
   <div class="credits">
     <!-- All the links in the footer should remain intact. -->
