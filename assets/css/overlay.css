@@ -96,8 +96,8 @@ anima {
 }
 
 .pic {
-  max-width: 960px;
-  max-height: 540px;
+  max-width: 300px;
+  max-height: 225px;
   position: relative;
   overflow: hidden;  
   display: inline-block;
