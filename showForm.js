@@ -7,4 +7,14 @@ function showContent() {
     else {
         element.style.display='none';
     }
+
+
 }
+
+function showPackage(){
+    document.getElementById('agregarPaquete').style.display='block';
+  }
+
+  function hidePackage(){
+    document.getElementById('agregarPaquete').style.display='none';
+  }

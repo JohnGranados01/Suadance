@@ -799,6 +799,11 @@ section .container {
   right: 15px;
 }
 
+.portfolio-wrap .hover{
+  width: 0%;
+
+}
+
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
@@ -1055,6 +1060,11 @@ img {
 }
 
 
+.rowCenter {
+ 
+  margin: 1rem;
+  padding: 1rem;
 
-
-
+  /* IMPORTANTE */
+  text-align: center;
+}

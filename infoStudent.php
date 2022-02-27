@@ -8,7 +8,7 @@
   <title>Lista De Estudiantes</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  
   <!-- Favicons -->
   <link href="assets/img/Suadance sin fondo negro.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -33,7 +33,12 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+  #agregarPaquete{display:none;}
+  </style>
 </head>
+
+
 
 <body>
 
@@ -72,6 +77,8 @@
             <li><i class="bi bi-chevron-right"></i> <strong>Nombre:</strong> <span>Mariana</span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Apellido:</strong> <span>Fonseca</span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Telefono:</strong> <span>3158260214</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Estado:</strong> <span>Activo</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Paquete de Clases actual:</strong> <span>22/02/2022 - 24/03/2022</span></li>
           </ul>
         </div>
         <div class="col-lg-6">
@@ -89,8 +96,101 @@
   </div>
 
 </div><!-- End About Me -->
+<br>
+<br>
+<div class="container">
+    
+      
+
+       
+
+        
+      <button class="btn btn-warning" id="desplegar" onclick="showPackage();">Agregar Paquete de Clases</button>
+       
+      <br>
+      <br>
+      <div class="container" id="agregarPaquete">
+      <button class="btn btn-outline-warning" id="desplegar" onclick="hidePackage();">Ocultar</button>
+       <br>
+       <br>
+
+       <div class="row">
+        <div class="col-md-4"> </div>
+        <div class="col-md-4" style="align: center">
+            <label>Fecha de Inicio</label>
+            <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
+            <br>
+        </div>
+
+       </div>
+        
+       <div class="row">
+        <div class="col-md-4"> </div>
+        <div class="col-md-4" style="align: center">
+            <label>Fecha de Finalización</label>
+            <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
+            <br>
+        </div>
+
+       </div>
 
 
+
+       <div class="row">
+        <div class="col-md-4"> </div>
+        <div class="col-md-4" style="align: center">
+        <label>Tipo de Paquete de Clases</label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Seleccionar categoría</option>
+          <option value="1">1 Clase</option>
+          <option value="2">2 Clase</option>
+          <option value="3">3 Clase</option>
+          <option value="4">4 Clase</option>
+          
+        </select>
+        <br>
+        </div>
+
+        <div class="row">
+        <div class="col-md-4"> </div>
+        <div class="col-md-4" style="align: center">
+        <label>Notas</label>
+            <br>
+            <textarea name="textarea" rows="5" cols="50" placeholder="Agregue notas adicionales si lo requiere"></textarea>
+          <br>
+        </div>
+
+       </div>
+
+  
+
+
+      <div class="rowButton">
+        
+        <br>
+        <input class="btn btn-warning" type="submit" value="Actualizar Paquete de Clases"></input>
+          <br>
+      
+
+       </div>
+
+       
+   
+
+  </div>
+  <br>
+
+
+  
+  <script>
+    function showPackage(){
+      document.getElementById('agregarPaquete').style.display='block';
+    }
+
+    function hidePackage(){
+      document.getElementById('agregarPaquete').style.display='none';
+    }
+  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -99,9 +199,10 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
 
 </body>
 
