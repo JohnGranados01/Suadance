@@ -165,7 +165,7 @@
   
 
 
-      <div class="rowButton">
+      <div class="rowCenter">
         
         <br>
         <input class="btn btn-warning" type="submit" value="Actualizar Paquete de Clases"></input>

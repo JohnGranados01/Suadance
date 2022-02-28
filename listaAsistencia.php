@@ -53,7 +53,7 @@
 
       <div class="section-title">
         <h2>Listado</h2>
-        <p>Nombre de Categoria</p>
+        <p>LISTA DE ASISTENCIA</p>
       </div>
 
      <div class="container">
@@ -70,42 +70,20 @@
                 <tr>
                 <th><img src="assets/img/alumnos/ejemplo1.jpg" width=60px></th>
                 <td>Maria Fonseca</td>
-                <td>
-                    <div class="form-check">
-                    <input type="checkbox" value="" id="flexCheckChecked">
-                    
-                    </div>
-                </td>
+                <td>Asistió</td>
                 </tr>
                 <tr>
                 <th><img src="assets/img/alumnos/ejemplo2.jpg" width=60px></th>
                 <td>Manuel Perez</td>
-                <td>
-                    <div class="form-check">
-                    <input type="checkbox" value="" id="flexCheckChecked">
-                    
-                    </div>
-                </td>
+                <td>No Asistió</td>
                 </tr>
                 <tr>
                 <th><img src="assets/img/alumnos/ejemplo3.jpg" width=60px></th>
                 <td >Sarah Llanos</td>
-                <td>
-                    <div class="form-check">
-                    <input type="checkbox" value="" id="flexCheckIndeterminate">
-                    
-                    </div>
-                </td>
+                <td>Asistió</td>
                 </tr>
             </tbody>
         </table>
-
-
-      <div class="rowCenter">
-        <br>
-      <input type="button" class="btn btn-light" onclick="location.href='index.html';" value="Tomar Listado" />
-      <br>
-      </div>
      </div>
 
       
