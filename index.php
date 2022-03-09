@@ -3,8 +3,6 @@
 require 'database.php';
     session_start();
 
-    
-
     if(isset($_SESSION['user_id'])){
         $records = $conn->prepare('SELECT id, usuario, password FROM users WHERE id = :id ');
         $records->bindParam(':id', $_SESSION['user_id']);
@@ -64,21 +62,22 @@ require 'database.php';
   <!-- si esta registrado el usuario, muestra esto -->
   <?php if(!empty($user)):?>
   <!-- ======= Header ======= -->
+
   <header id="header">
     <div class="container">
 
       <h1><a href="index.php"><img src="assets/img/Suadance sin fondo letras dorado.png"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2><span>Sistema de registro de estudiantes SDC</span></h2>
+      <h2><span>Sistema de registro de estudiantes SDC</span>
+      <div class="navfirst"><label class="welcome">Bienvenido <?= $user['usuario'] ?></label></div></h2>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="nav-link">Bienvenido <?= $user['usuario'] ?><a href="logout.php">Cerrar Sesión</a></li>
           <li><a class="nav-link" href="#add">Registrar estudiante</a></li>
           <li><a class="nav-link" href="#category">Lista de Estudiantes</a></li>
           <li><a class="nav-link" href="#clases">Horarios y Clases</a></li>
-      
+          <li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -96,47 +95,46 @@ require 'database.php';
 <!-- ======= Add Student section ======= -->
 <section id="add" class="add">
   <div class="container">
-    <form action="forms/contact.php"  class="form-horizontal" method="post" role="form" style=" width: 35vw; margin-left : 23.5vw;">
+    <form  class="form-horizontal" method="post" role="form" style=" width: 35vw; margin-left : 23.5vw;">
       <div class="row">
-
         <div class="col-md-12 form-group">
           <label>Foto del estudiante</label>
           <input type="file" class="form-control" name="porfile" id="file">
           <br>
         </div>
         <div class="col-md-12 form-group">
-          <label>Documento de identidad</label>
-          <input type="text" name="name" class="form-control" id="name" placeholder="Identificación" required>
+          <label>Documento de identidad *</label>
+          <input type="text" name="id" class="form-control" id="name" placeholder="Identificación" required>
           <br>
         </div>
         <div class="col-md-12 form-group">
-          <label>Nombres</label>
+          <label>Nombres *</label>
           <input type="text" name="name" class="form-control" id="name" placeholder="Nombres" required>
           <br>
         </div>
         <div class="col-md-12 form-group">
-          <label>Apellidos</label>
-          <input type="text" name="name" class="form-control" id="name" placeholder="Apellidos" required>
+          <label>Apellidos *</label>
+          <input type="text" name="apellido" class="form-control" id="name" placeholder="Apellidos" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
             <label>Correo electr&oacute;nico (opcional)</label>
-          <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required>
+          <input type="text" class="form-control" name="email" id="email" placeholder="Correo" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
-            <label>Tel&eacute;fono</label>
-          <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="Número de teléfono" required>
+            <label>Tel&eacute;fono *</label>
+          <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Número de teléfono" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
-            <label>Direcci&oacute;n</label>
+            <label>Direcci&oacute;n *</label>
           <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
-            <label>Fecha de nacimiento</label>
-          <input type="date" class="form-control" name="dateBirthday" id="dateBirthday" required>
+          <label>Fecha de nacimiento *</label>
+          <input type="text" class="form-control" name="dateBirthday" id="dateBirthday" required>
           <br>
         </div>
       </div>
@@ -144,7 +142,7 @@ require 'database.php';
       <div class="col-md-12 form-group" style="text-align: center">
         <br>
         <br>
-          <h4>Categor&iacute;a</h4>
+        <h4>Categor&iacute;a *</h4>
         <br>
         <select class="form-select" aria-label="Default select example">
           <option selected>Seleccionar categoría</option>
@@ -159,15 +157,15 @@ require 'database.php';
         <br>
       </div>
 
-        <div class="">
-          <input type="checkbox" name="check" id="check" value="1" onchange="showContent()"> Requiere datos de acudiente</input>
-        </div>
+      <div class="">
+        <input type="checkbox" name="check" id="check" value="1" onchange="showContent()"> Requiere datos de acudiente</input>
+      </div>
 
       <div class="row" id="finalizar" style="display: none;">
         <div class="col-md-12 form-group">
-        <br>
+          <br>
           <h3>Acudiente</h3>
-        <br>
+          <br>
         </div>
         <div class="col-md-12 form-group">
           <label>Nombres</label>
@@ -180,18 +178,55 @@ require 'database.php';
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
-            <label>Tel&eacute;fono</label>
-          <input type="tel" class="form-control" name="phoneParent" id="phoneParent" placeholder="Número de teléfono">
+          <label>Tel&eacute;fono</label>
+          <input type="text" class="form-control" name="phoneParent" id="phoneParent" placeholder="Número de teléfono">
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group mt-3 mt-md-0" style="text-align: center">
+          <br>
+          <br>
+          <h4>Datos de paquete</h4>
+          <br>
+        </div>
+        <div class="col-md-12 form-group mt-3 mt-md-0">
+          <label>Fecha de Inicio *</label>
+          <input type="text" class="form-control" name="dateBegin" id="dateBegin" required>
+          <br>
+        </div>
+        <div class="col-md-12 form-group mt-3 mt-md-0">
+          <label>Fecha de Finalizaci&oacute;n *</label>
+          <input type="text" class="form-control" name="dateEnd" id="dateFinish" required>
+          <br>
+        </div>
+        <div class="col-md-12 form-group mt-3 mt-md-0" style="align: center">
+          <label>Paquete de Clases *</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Seleccionar paquete</option>
+            <option value="1">4 clases</option>
+            <option value="2">6 Clases</option>
+            <option value="3">8 Clases</option>
+            <option value="4">16 Clases</option> 
+          </select>
+          <br>
+        </div>
+        <div class="col-md-12 form-group mt-3 mt-md-0">
+          <label>Observaciones</label>
+          <br>
+          <input type="text" class="form-control" name="observaciones" id="dateFinish" required>
           <br>
         </div>
       </div>
       <div class="d-grid gap-2 col-12 mx-auto">
         <br>
         <br>
-        <input class="btn btn-warning" type="submit" value="Finalizar registro"></input>
+        <input class="btn btn-warning" name="Fin_registro" type="submit" value="Finalizar registro"></input>
       </div>
     </form>
-
+    <?php
+    include ("registerStudent.php");
+    ?>
   </div>
 
 </section><!-- End Add Student -->

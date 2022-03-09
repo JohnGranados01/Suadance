@@ -99,83 +99,66 @@
 <br>
 <br>
 <div class="container">
-    
-      
 
+  <button class="btn btn-warning" id="desplegar" onclick="showPackage();">Agregar Paquete de Clases</button>
        
+  <br>
+  <br>
+  <div class="container" id="agregarPaquete">
+    <button class="btn btn-outline-warning" id="desplegar" onclick="hidePackage();">Ocultar</button>
+    <br>
+    <br>
 
-        
-      <button class="btn btn-warning" id="desplegar" onclick="showPackage();">Agregar Paquete de Clases</button>
-       
-      <br>
-      <br>
-      <div class="container" id="agregarPaquete">
-      <button class="btn btn-outline-warning" id="desplegar" onclick="hidePackage();">Ocultar</button>
-       <br>
-       <br>
-
-       <div class="row">
-        <div class="col-md-4"> </div>
+    <div class="row">
+      <div class="col-md-4"> </div>
         <div class="col-md-4" style="align: center">
-            <label>Fecha de Inicio</label>
-            <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
-            <br>
+          <label>Fecha de Inicio</label>
+          <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
+          <br>
         </div>
 
-       </div>
+      </div>
         
-       <div class="row">
+      <div class="row">
         <div class="col-md-4"> </div>
-        <div class="col-md-4" style="align: center">
+          <div class="col-md-4" style="align: center">
             <label>Fecha de Finalización</label>
             <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
             <br>
-        </div>
+          </div>
 
-       </div>
+      </div>
 
-
-
-       <div class="row">
+      <div class="row">
         <div class="col-md-4"> </div>
-        <div class="col-md-4" style="align: center">
-        <label>Tipo de Paquete de Clases</label>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Seleccionar categoría</option>
-          <option value="1">1 Clase</option>
-          <option value="2">2 Clase</option>
-          <option value="3">3 Clase</option>
-          <option value="4">4 Clase</option>
-          
-        </select>
-        <br>
-        </div>
+          <div class="col-md-4" style="align: center">
+            <label>Tipo de Paquete de Clases</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Seleccionar categoría</option>
+              <option value="1">1 Clase</option>
+              <option value="2">2 Clase</option>
+              <option value="3">3 Clase</option>
+              <option value="4">4 Clase</option> 
+            </select>
+            <br>
+          </div>
 
         <div class="row">
-        <div class="col-md-4"> </div>
-        <div class="col-md-4" style="align: center">
-        <label>Notas</label>
-            <br>
-            <textarea name="textarea" rows="5" cols="50" placeholder="Agregue notas adicionales si lo requiere"></textarea>
-          <br>
+          <div class="col-md-4"> </div>
+            <div class="col-md-4" style="align: center">
+              <label>Notas</label>
+              <br>
+              <textarea name="textarea" rows="5" cols="50" placeholder="Agregue notas adicionales si lo requiere"></textarea>
+              <br>
         </div>
 
        </div>
 
-  
-
-
       <div class="rowCenter">
-        
         <br>
         <input class="btn btn-warning" type="submit" value="Actualizar Paquete de Clases"></input>
-          <br>
-      
-
-       </div>
-
-       
-   
+        <br>
+      </div>
 
   </div>
   <br>
