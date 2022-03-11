@@ -1,21 +1,21 @@
 <?php
 
 include ("database.php");
-
+$imagen='';
 if(isset($_POST['Fin_registro'])){
     if(strlen($_POST['id'])>=1 &&
         strlen($_POST['name'])>=1 &&
         strlen($_POST['apellido'])>=1 &&
-        strlen($_POST['email'])>=1 &&
         strlen($_POST['telefono'])>=1 &&
         strlen($_POST['direccion'])>=1 &&
         strlen($_POST['dateBirthday'])>=1 &&
-        strlen($_POST['nameParent'])>=1 &&
-        strlen($_POST['lastNameParent'])>=1 &&
-        strlen($_POST['phoneParent'])>=1 &&
         strlen($_POST['dateBegin'])>=1 &&
-        strlen($_POST['dateEnd'])>=1 &&
-        strlen($_POST['observaciones'])>=1){
+        strlen($_POST['dateEnd'])>=1){
+            $file = $_FILES["porfile"];
+            $nombre=$file["name"];
+            $tipo = $file["type"];
+            $ruta_provisional = $file["tmp_name"];
+            $carpeta="fotos/";
             $id = $_POST['id'];
             $name = $_POST['name'];
             $apellido = $_POST['apellido'];
@@ -23,22 +23,34 @@ if(isset($_POST['Fin_registro'])){
             $telefono = $_POST['telefono'];
             $direccion = $_POST['direccion'];
             $dateBirthday = $_POST['dateBirthday'];
+            $category = $_POST['categoria'];
             $nameParent = $_POST['nameParent'];
             $lastNameParent = $_POST['lastNameParent'];
             $phoneParent = $_POST['phoneParent'];
             $dateBegin = $_POST['dateBegin'];
             $dateEnd = $_POST['dateEnd'];
+            $package = $_POST['paquete'];
             $observaciones = $_POST['observaciones'];
-            $consulta= "INSERT INTO students(Id, Nombre, Apellidos, email, telefono, direccion, fecha_nac, fecha_inicio, nombre_acudiente, ape_acudiente, tel_acudiente, fecha_fin, observaciones) 
-                VALUES ('$id','$name','$apellido', '$email','$telefono','$direccion','$dateBirthday','$nameParent','$lastNameParent','$phoneParent','$dateBegin','$dateEnd','$observaciones')";
-            $records = $conn->prepare($consulta);
-            $records->execute();
-            $results = $records->fetch(PDO::FETCH_ASSOC);
-            if($results){
-                
+            if($tipo != 'image/jpg' && $tipo != 'image/JPG' && $tipo !='image.jpeg' && $tipo != 'image/png' && $tipo != 'image.gif'){
+                echo '<script language="javascript">alert("No se seleccionó foto o no cumple con una extensión aceptada, el estudiante se registró sin foto.");</script>';
             }else{
-                echo '<script language="javascript">alert("El estudiante se ha registrado con éxito :)");</script>';
-                
+                $src = $carpeta.$nombre;
+                move_uploaded_file($ruta_provisional, $src);
+                $imagen = "fotos/".$nombre;
+            }
+            if($dateEnd<$dateBegin){
+                echo '<script language="javascript">alert("La fecha de finalización no puede ser menor a la de comienzo, el estudiante no se registró");</script>';
+            }else{
+                $consulta= "INSERT INTO students(foto, Id, Nombre, Apellidos, email, telefono, direccion, fecha_nac, categoria, nombre_acudiente, ape_acudiente, tel_acudiente, fecha_inicio, fecha_fin, paquete, observaciones) 
+                    VALUES ('$imagen','$id','$name','$apellido', '$email','$telefono','$direccion','$dateBirthday', '$category', '$nameParent','$lastNameParent','$phoneParent', '$dateBegin','$dateEnd', '$package', '$observaciones')";
+                $records = $conn->prepare($consulta);
+                $records->execute();
+                $results = $records->fetch(PDO::FETCH_ASSOC);
+                if($results){
+                    
+                }else{
+                    echo '<script language="javascript">alert("El estudiante se ha registrado con éxito");</script>';
+                }
             }
     }else{
         ?>
@@ -47,3 +59,8 @@ if(isset($_POST['Fin_registro'])){
     }
 }
 ?>
+<script> 
+<!--
+window.location.replace('index.php'); 
+//-->
+</script>

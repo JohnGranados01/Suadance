@@ -25,8 +25,11 @@ require 'database.php';
   <title>Academia de Baile SUADANCE</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script type="text/javascript" src="showForm.js"></script>
-  <script type="text/javascript" src="photo.js"></script>
+  <script type="text/javascript" src="permiso_camara.js"></script>
+  <script type="text/javascript" src="takephoto.js"></script>
+
 
   <!-- Favicons -->
   <link href="assets/img/Suadance sin fondo negro.ico" rel="icon">
@@ -95,8 +98,19 @@ require 'database.php';
 <!-- ======= Add Student section ======= -->
 <section id="add" class="add">
   <div class="container">
-    <form  class="form-horizontal" method="post" role="form" style=" width: 35vw; margin-left : 23.5vw;">
+    <form class="form-horizontal" action="registerStudent.php" method="post" enctype="multipart/form-data" role="form" style=" width: 35vw; margin-left : 23.5vw;">
       <div class="row">
+        <div class="col-md-12 form-group" id="cont_webcam">
+          <video src="" id="video" playsinline autoplay></video>
+          <canvas id="canvas" name="canvas" width="400px" height="300px"></canvas>
+        </div>
+        <div class="col-md-12 form-group" id="cont_webcam" id="mensaje">
+          <center>
+            <input type="button" id="capturar" onclick="void capturar_foto()" value="tomar foto"></input>
+            <button type="button" id="btn_guardar" onclick="void guardar_foto()" style="display:none;">Guardar foto</button>
+
+          </center>
+        </div>
         <div class="col-md-12 form-group">
           <label>Foto del estudiante</label>
           <input type="file" class="form-control" name="porfile" id="file">
@@ -119,12 +133,12 @@ require 'database.php';
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
             <label>Correo electr&oacute;nico (opcional)</label>
-          <input type="text" class="form-control" name="email" id="email" placeholder="Correo" required>
+          <input type="email" class="form-control" name="email" id="email" placeholder="Correo">
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
             <label>Tel&eacute;fono *</label>
-          <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Número de teléfono" required>
+          <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Número de teléfono" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
@@ -134,7 +148,7 @@ require 'database.php';
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
           <label>Fecha de nacimiento *</label>
-          <input type="text" class="form-control" name="dateBirthday" id="dateBirthday" required>
+          <input type="date" class="form-control" name="dateBirthday" id="dateBirthday" required>
           <br>
         </div>
       </div>
@@ -144,15 +158,14 @@ require 'database.php';
         <br>
         <h4>Categor&iacute;a *</h4>
         <br>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Seleccionar categoría</option>
-          <option value="1">Funny kids</option>
-          <option value="2">Junior</option>
-          <option value="3">Prejuvenil</option>
-          <option value="4">Juvenil básico</option>
-          <option value="5">Juvenil medio</option>
-          <option value="6">Juvenil avanzado</option>
-          <option value="7">Golden</option>
+        <select class="form-select" aria-label="Default select example" name="categoria">
+          <option value="funny">Funny kids</option>
+          <option value="junior">Junior</option>
+          <option value="prejuvenil">Prejuvenil</option>
+          <option value="juvenilB">Juvenil básico</option>
+          <option value="juvenilM">Juvenil medio</option>
+          <option value="juvenilA">Juvenil avanzado</option>
+          <option value="golden">Golden</option>
         </select>
         <br>
       </div>
@@ -179,7 +192,7 @@ require 'database.php';
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
           <label>Tel&eacute;fono</label>
-          <input type="text" class="form-control" name="phoneParent" id="phoneParent" placeholder="Número de teléfono">
+          <input type="text" pattern="[0-9]+" class="form-control" name="phoneParent" id="phoneParent" placeholder="Número de teléfono">
           <br>
         </div>
       </div>
@@ -192,41 +205,37 @@ require 'database.php';
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
           <label>Fecha de Inicio *</label>
-          <input type="text" class="form-control" name="dateBegin" id="dateBegin" required>
+          <input type="date" class="form-control" name="dateBegin" id="dateComienzo" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
           <label>Fecha de Finalizaci&oacute;n *</label>
-          <input type="text" class="form-control" name="dateEnd" id="dateFinish" required>
+          <input type="date" class="form-control" name="dateEnd" id="dateFinish" required>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0" style="align: center">
           <label>Paquete de Clases *</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Seleccionar paquete</option>
-            <option value="1">4 clases</option>
-            <option value="2">6 Clases</option>
-            <option value="3">8 Clases</option>
-            <option value="4">16 Clases</option> 
+          <select class="form-select" aria-label="Default select example" name = "paquete">
+            <option value="4">4 clases</option>
+            <option value="6">6 Clases</option>
+            <option value="8">8 Clases</option>
+            <option value="16">16 Clases</option> 
           </select>
           <br>
         </div>
         <div class="col-md-12 form-group mt-3 mt-md-0">
           <label>Observaciones</label>
           <br>
-          <input type="text" class="form-control" name="observaciones" id="dateFinish" required>
+          <input type="text" class="form-control" name="observaciones" id="observaciones">
           <br>
         </div>
       </div>
       <div class="d-grid gap-2 col-12 mx-auto">
         <br>
         <br>
-        <input class="btn btn-warning" name="Fin_registro" type="submit" value="Finalizar registro"></input>
+        <input  class="btn btn-warning" name="Fin_registro" type="submit" value="Finalizar registro"></input>
       </div>
     </form>
-    <?php
-    include ("registerStudent.php");
-    ?>
   </div>
 
 </section><!-- End Add Student -->

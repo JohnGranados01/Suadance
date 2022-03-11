@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 09-03-2022 a las 06:56:46
+-- Tiempo de generación: 11-03-2022 a las 09:04:24
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.3.21
 
@@ -29,19 +29,22 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE IF NOT EXISTS `students` (
+  `foto` varchar(200) DEFAULT NULL,
   `Id` varchar(15) NOT NULL,
   `Nombre` varchar(40) NOT NULL,
   `Apellidos` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `telefono` varchar(15) NOT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `telefono` int(15) NOT NULL,
   `direccion` varchar(30) NOT NULL,
-  `fecha_nac` varchar(34) NOT NULL,
-  `fecha_inicio` varchar(45) NOT NULL,
-  `nombre_acudiente` varchar(30) NOT NULL,
-  `ape_acudiente` varchar(30) NOT NULL,
-  `tel_acudiente` text NOT NULL,
-  `fecha_fin` varchar(100) NOT NULL,
-  `observaciones` varchar(200) NOT NULL,
+  `fecha_nac` date NOT NULL,
+  `categoria` varchar(50) NOT NULL,
+  `nombre_acudiente` varchar(30) DEFAULT NULL,
+  `ape_acudiente` varchar(30) DEFAULT NULL,
+  `tel_acudiente` varchar(15) DEFAULT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_fin` date NOT NULL,
+  `paquete` varchar(20) NOT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -49,10 +52,10 @@ CREATE TABLE IF NOT EXISTS `students` (
 -- Volcado de datos para la tabla `students`
 --
 
-INSERT INTO `students` (`Id`, `Nombre`, `Apellidos`, `email`, `telefono`, `direccion`, `fecha_nac`, `fecha_inicio`, `nombre_acudiente`, `ape_acudiente`, `tel_acudiente`, `fecha_fin`, `observaciones`) VALUES
-('3456', 'Yulieth HuÃ©rfano', 'Suarez BarÃ³n', 'cristihu@hotmail.com', '8765', 'Carrera 26 #9 - 151', '2022-03-17', 'bjkn', 'kjlnk', '56789', '2022-03-11', '2022-03-17', 'ihjkl'),
-('1002760550', 'FerrelÃ©ctricos ValdÃ©z', 'Suarez BarÃ³n', 'cristihu@hotmail.com', '7724816', 'Carrera 26 #9 - 151', 'hkjn', 'bjkn', 'kjlnk', '56789', 'jbk', 'kjn,m', 'iuhkn'),
-('1057660667', 'Encuesta de prueba', 'Suarez BarÃ³n', 'linahuerfano19@hotmail.com', '7724816', 'Carrera 26 #9 - 151', 'hkjn', 'bjkn', 'kjlnk', 'jbkjn', 'jbk', 'kjn,m', 'iuhkn');
+INSERT INTO `students` (`foto`, `Id`, `Nombre`, `Apellidos`, `email`, `telefono`, `direccion`, `fecha_nac`, `categoria`, `nombre_acudiente`, `ape_acudiente`, `tel_acudiente`, `fecha_inicio`, `fecha_fin`, `paquete`, `observaciones`) VALUES
+('fotos/gobernacion.png', '1057660667', 'Encuesta de prueba', 'fgh', '', 8765, 'Carrera 26 #9 - 151', '2022-03-21', 'juvenilB', '', '', '', '2022-03-09', '2022-03-02', '', ''),
+('', '876', 'Yulieth Cristina HuÃ©rfano PÃ©rez', 'Suarez BarÃ³n', '', 8765, 'Carrera 26 #9 - 151', '2022-03-03', 'funny', '', '', '', '2022-03-16', '2022-03-09', '16', ''),
+('', '9999', 'FerrelÃ©ctricos ValdÃ©z', 'Suarez BarÃ³n', '', 8765, 'Carrera 26 #9 - 151', '2022-03-16', 'funny', '', '', '', '2022-03-02', '2022-03-23', '4', '');
 
 -- --------------------------------------------------------
 
