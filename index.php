@@ -29,6 +29,7 @@ require 'database.php';
   <script type="text/javascript" src="showForm.js"></script>
   <script type="text/javascript" src="permiso_camara.js"></script>
   <script type="text/javascript" src="takephoto.js"></script>
+  <script type="text/javascript" src="listarEstudiantes.js"></script>
 
 
   <!-- Favicons -->
@@ -259,7 +260,7 @@ require 'database.php';
           <img src="assets/img/categorias/FunnyKids.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
             <br>
-            <a href="funnyKids.php">Funny Kids</a>
+            <a role="button" id="funnyKids" value="FunnyKidsuwu" onclick="selected('1');" href="listado.php">Funny Kids</a>
           
           </div>
         </div>
@@ -283,7 +284,7 @@ require 'database.php';
         <img src="assets/img/categorias/Junior.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a href="#">Junior</a>
+          <a role="button" id="junior" onclick="selected('2');" href="listado.php">Junior</a>
             
           </div>
         </div>
@@ -294,7 +295,7 @@ require 'database.php';
         <img src="assets/img/categorias/PreJuvenil.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a href="#">Pre Juvenil</a>
+          <a role="button" id="prejuvenil" onclick="selected('3');" href="listado.php">Pre Juvenil</a>
             
           </div>
         </div>
@@ -306,7 +307,7 @@ require 'database.php';
         <img src="assets/img/categorias/JuvenilBasico.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-            <a href="#">Juvenil Basico</a>
+          <a role="button" id="juvenilB" onclick="selected('4');" href="listado.php">Juvenil Basico</a>
             
           </div>
         </div>
@@ -318,7 +319,7 @@ require 'database.php';
         <img src="assets/img/categorias/JuvenilIntermedio.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a href="#">Juvenil Intermedio</a>
+          <a role="button" id="juvenilInt" onclick="selected('5');" href="listado.php">Juvenil Intermedio</a>
             
           </div>
         </div>
@@ -330,7 +331,7 @@ require 'database.php';
         <img src="assets/img/categorias/Compania.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a href="#">Compañia</a>
+          <a role="button" id="compania" onclick="selected('6');" href="listado.php">Compañia</a>
             
           </div>
         </div>
@@ -353,7 +354,7 @@ require 'database.php';
         <img src="assets/img/categorias/Golden.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a href="#">Golden</a>
+          <a role="button" id="golden" onclick="selected('6');" href="listado.php">Golden</a>
             
           </div>
         </div>
@@ -478,9 +479,10 @@ require 'database.php';
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="./listarEstudiante.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
 <!-- si no esta registrado el usuario muestra esto -->
 <?php else: ?>
   <?php 

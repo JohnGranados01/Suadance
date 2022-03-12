@@ -1,4 +1,8 @@
+<?php 
 
+	$conexion=mysqli_connect('localhost','root','','suadance');
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +12,10 @@
   <title>Lista De Estudiantes</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <script type="text/javascript" src="listarEstudiantes.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+ 
 
   <!-- Favicons -->
   <link href="assets/img/Suadance sin fondo negro.ico" rel="icon">
@@ -35,7 +43,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body onload="listar();">
 
   <!-- ======= Header ======= -->
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -57,7 +65,9 @@
       </div>
 
      <div class="container">
-
+  
+    
+   
             <table class="table">
             <thead>
                 <tr>
@@ -68,24 +78,46 @@
                 </tr>
             </thead>
             <tbody>
+          
+ 
+
+
+
+
+
+              <?php
+            
+            $num="uwu";
+            echo '<script>alert("HOLLLAA'.$num.'");</script>';
+           
+             // require 'listarEstudiantes.js';
+             // $num->listar();
+              
+             // echo '<script> alert("HOLLLAA'.$num.'");</script>';
+          
+              //$sql="SELECT * from students WHERE categoria=funny";
+              //$sql="SELECT * from students WHERE categoria=junior";
+              //$sql="SELECT * from students WHERE categoria=prejuvenil";
+              //$sql="SELECT * from students WHERE categoria=juvenilB";
+              //$sql="SELECT * from students WHERE categoria=juvenilM";
+              //$sql="SELECT * from students WHERE categoria=juvenilA";
+              //$sql="SELECT * from students WHERE categoria=golden";
+              $sql="SELECT * from students";
+              $result=mysqli_query($conexion,$sql);
+
+              while($mostrar=mysqli_fetch_array($result)){
+              ?> 
                 <tr>
-                <th><a href="infoStudent.php"><img src="assets/img/alumnos/ejemplo1.jpg" width=60px></a></th>
-                <td>Maria</td>
-                <td>Fonseca</td>
-                <td>Activo</td>
+                
+                <td><img src="<?php echo $mostrar['foto'] ?>" class="img-fluid" alt=""></td>
+                <td><?php echo $mostrar['Nombre'] ?></td>
+                <td><?php echo $mostrar['Apellidos'] ?></td>
+                <td><?php echo $mostrar['categoria'] ?></td>
+                
                 </tr>
-                <tr>
-                <th><img src="assets/img/alumnos/ejemplo2.jpg" width=60px></th>
-                <td>Manuel</td>
-                <td>Perez</td>
-                <td>Activo</td>
-                </tr>
-                <tr>
-                <th><img src="assets/img/alumnos/ejemplo3.jpg" width=60px></th>
-                <td >Sarah</td>
-                <td >Llanos</td>
-                <td>Inactivo</td>
-                </tr>
+                <?php 
+	              }
+	              ?>
             </tbody>
         </table>
      </div>
