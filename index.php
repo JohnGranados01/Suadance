@@ -31,6 +31,16 @@ require 'database.php';
   <script type="text/javascript" src="takephoto.js"></script>
   <script type="text/javascript" src="listarEstudiantes.js"></script>
 
+  <!-- Calendar Stuff -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <script defer="defer" type="module" src="assets/js/chunk-vendors.d39985fd.js"></script>
+  <script defer="defer" type="module" src="assets/js/app.e4155f14.js"></script>
+  <link href="assets/css/vuecalendar.css" rel="stylesheet">
+  <script defer="defer" src="assets/js/chunk-vendors-legacy.f453de57.js" nomodule></script>
+  <script defer="defer" src="assets/js/app-legacy.fc1cb8db.js" nomodule></script>          
 
   <!-- Favicons -->
   <link href="assets/img/Suadance sin fondo negro.ico" rel="icon">
@@ -385,67 +395,10 @@ require 'database.php';
 
       <div class="section-title">
         <h2>HORARIOS Y ASISTENCIA</h2>
-        <p>CLASES DEL DÍA</p>
+        <p>CLASES</p>
       </div>
-      
-    <div class="event-container">
-    <h3 class="year"></h3>
-
-      <div class="event">
-        <div class="event-left">
-          <a href="tomarLista.php">
-          <div class="event-date">
-            <div class="date">Febrero 21</div>
-            <div class="month">Lunes</div>
-          </div>
-          </a>
-        </div>
-        <div class="event-right">
-          <h3 class="event-title">Juvenil Intermedio</h3>
-          
-          <div class="event-timing">
-           <p>5:00 Pm</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="event-left">
-          <a href="tomarLista.php">
-          <div class="event-date">
-            <div class="date">Febrero 21</div>
-            <div class="month">Lunes</div>
-          </div>
-          </a>
-        </div>
-        <div class="event-right">
-          <h3 class="event-title">Junior</h3>
-          
-          <div class="event-timing">
-           <p>5:00 Pm</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="event-left">
-          <a href="tomarLista.php">
-          <div class="event-date">
-            <div class="date">Febrero 21</div>
-            <div class="month">Lunes</div>
-          </div>
-          </a>
-        </div>
-        <div class="event-right">
-          <h3 class="event-title">Compania</h3>
-          
-          <div class="event-timing">
-           <p>5:00 Pm</p>
-          </div>
-        </div>
-      </div>
-
-      
+      <noscript><strong>We're sorry but vuecalendar doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+      <div id="app"></div>
 
     </div>
 
