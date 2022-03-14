@@ -97,9 +97,9 @@ require 'database.php';
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <div class="social-links">
-        <a href="https://twitter.com/suadance" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://www.facebook.com/search/top?q=suadance%20compa%C3%B1ia%20de%20danza" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/suadance/?hl=es-la" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://twitter.com/suadance" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/search/top?q=suadance%20compa%C3%B1ia%20de%20danza" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/suadance/?hl=es-la" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
        
       </div>
 
