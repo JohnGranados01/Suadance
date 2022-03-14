@@ -64,7 +64,7 @@
   ======================================================== -->
 </head>
 
-<body onload="local();">
+<body>
 
   <!-- ======= Header ======= -->
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -82,7 +82,7 @@
 
       <div class="section-title">
         <h2>Listado</h2>
-        <p>Nombre de Categoria</p>
+        <p>Pre Juvenil</p>
       </div>
 
      <div class="container">
@@ -107,14 +107,7 @@
 
 
               <?php
-                $resultado = array('mensaje' => '');
-                if( isset($_POST['data']) ) {
-                    $resultado['mensaje'] = "Viene el valor : ".$_POST['data'];
-                    echo json_encode($resultado);
-                    exit;
-                }
-
-                echo $resultado;
+               
             //$num="uwu";
             //echo '<script>alert("HOLLLAA'.$num.'");</script>';
            
@@ -130,7 +123,7 @@
               //$sql="SELECT * from students WHERE categoria=juvenilM";
               //$sql="SELECT * from students WHERE categoria=juvenilA";
               //$sql="SELECT * from students WHERE categoria=golden";
-              $sql="SELECT * from students WHERE categoria='juvenilB'";
+              $sql="SELECT * from students WHERE categoria='prejuvenil'";
               $result=mysqli_query($conexion,$sql);
 
               while($mostrar=mysqli_fetch_array($result)){

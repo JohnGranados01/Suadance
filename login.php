@@ -42,7 +42,7 @@ require 'database.php';
     <?php endif; ?>
 
     <div class="login-box">
-      <img src="assets/img/Suadance sin fondo.png" class="avatar" alt="Avatar Image">
+      <img src="assets/img/logo sin letras.png" class="avatar" alt="Avatar Image">
       <h1>Iniciar Sesion</h1>
 
       <form action="login.php" method="POST">

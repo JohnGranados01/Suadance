@@ -4,7 +4,7 @@ function selected(categoria) {
 
     select=categoria
     localStorage.setItem("Categoria",select)
-    alert(select)
+  //  alert(select)
 }
 
 function listar(){

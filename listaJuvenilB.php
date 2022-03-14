@@ -82,7 +82,7 @@
 
       <div class="section-title">
         <h2>Listado</h2>
-        <p>Nombre de Categoria</p>
+        <p>Juvenil Básico</p>
       </div>
 
      <div class="container">
@@ -107,14 +107,7 @@
 
 
               <?php
-                $resultado = array('mensaje' => '');
-                if( isset($_POST['data']) ) {
-                    $resultado['mensaje'] = "Viene el valor : ".$_POST['data'];
-                    echo json_encode($resultado);
-                    exit;
-                }
-
-                echo $resultado;
+               
             //$num="uwu";
             //echo '<script>alert("HOLLLAA'.$num.'");</script>';
            

@@ -270,7 +270,7 @@ require 'database.php';
           <img src="assets/img/categorias/FunnyKids.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
             <br>
-            <a role="button" id="funnyKids" value="FunnyKidsuwu" onclick="selected('1');" href="listado.php">Funny Kids</a>
+            <a role="button" id="funnyKids" value="FunnyKidsuwu" onclick="selected('1');" href="listaFunny.php">Funny Kids</a>
           
           </div>
         </div>
@@ -294,7 +294,7 @@ require 'database.php';
         <img src="assets/img/categorias/Junior.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="junior" onclick="selected('2');" href="listado.php">Junior</a>
+          <a role="button" id="junior" onclick="selected('2');" href="listaJunior.php">Junior</a>
             
           </div>
         </div>
@@ -305,7 +305,7 @@ require 'database.php';
         <img src="assets/img/categorias/PreJuvenil.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="prejuvenil" onclick="selected('3');" href="listado.php">Pre Juvenil</a>
+          <a role="button" id="prejuvenil" onclick="selected('3');" href="listaPrejuvenil.php">Pre Juvenil</a>
             
           </div>
         </div>
@@ -317,7 +317,7 @@ require 'database.php';
         <img src="assets/img/categorias/JuvenilBasico.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="juvenilB" onclick="selected('4');" href="listado.php">Juvenil Basico</a>
+          <a role="button" id="juvenilB" onclick="selected('4');" href="listaJuvenilB.php">Juvenil Basico</a>
             
           </div>
         </div>
@@ -329,7 +329,7 @@ require 'database.php';
         <img src="assets/img/categorias/JuvenilIntermedio.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="juvenilInt" onclick="selected('5');" href="listado.php">Juvenil Intermedio</a>
+          <a role="button" id="juvenilInt" onclick="selected('5');" href="listaJuvenilInt.php">Juvenil Intermedio</a>
             
           </div>
         </div>
@@ -341,7 +341,7 @@ require 'database.php';
         <img src="assets/img/categorias/Compania.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="compania" onclick="selected('6');" href="listado.php">Compañia</a>
+          <a role="button" id="compania" onclick="selected('6');" href="listaCompania.php">Compañia</a>
             
           </div>
         </div>
@@ -364,7 +364,7 @@ require 'database.php';
         <img src="assets/img/categorias/Golden.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="golden" onclick="selected('6');" href="listado.php">Golden</a>
+          <a role="button" id="golden" onclick="selected('6');" href="listaGolden.php">Golden</a>
             
           </div>
         </div>
