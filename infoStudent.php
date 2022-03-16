@@ -1,4 +1,8 @@
+<?php 
 
+require 'database.php';
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,35 +67,51 @@
   <div class="section-title">
     <h2>Información estudiante</h2>
   </div>
-
+  
   <div class="row">
+    <?php 
+      $variable = $_GET['estudiante'];
+      //echo "el Id es: " .$variable;
+      
+      $sql="SELECT * from students WHERE Id='$variable'";
+      $stm = $conn->query($sql);
+
+      foreach($stm as $mostrar){
+        $var=$mostrar['Id'];
+       // echo $var;
+      ?>
     <div class="col-lg-4" data-aos="fade-right">
-      <img src="assets/img/alumnos/ejemplo1.jpg" class="img-fluid" alt="">
+      <img src="<?php echo $mostrar['foto'] ?>" class="img-fluid" alt="">
     </div>
     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
       
       <div class="row">
         <div class="col-lg-6">
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <strong>Documento de Identidad:</strong> <span>10253245</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Nombre:</strong> <span>Mariana</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Apellido:</strong> <span>Fonseca</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Telefono:</strong> <span>3158260214</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Documento de Identidad:</strong> <span><?php echo $mostrar['Id'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Nombre:</strong> <span>M<?php echo $mostrar['Nombre'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Apellido:</strong> <span><?php echo $mostrar['Apellidos'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Telefono:</strong> <span><?php echo $mostrar['telefono'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Estado:</strong> <span>Activo</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Paquete de Clases actual:</strong> <span>22/02/2022 - 24/03/2022</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Inicio de Paquete de Clases actual:</strong> <span><?php echo $mostrar['fecha_inicio'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Fin de Paquete de Clases actual:</strong> <span><?php echo $mostrar['fecha_fin'] ?></span></li>
           </ul>
         </div>
         <div class="col-lg-6">
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>17</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Dirección:</strong> <span>Calle 25 # 13-27</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Cumpleaños:</strong> <span>mariaF@example.com</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Contacto Acudiente:</strong> <span>3170751128</span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Alergias o Limitantes</strong> <span>No</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span><?php echo $mostrar['telefono'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Dirección:</strong> <span><?php echo $mostrar['direccion'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Fecha de Nacimiento:</strong> <span><?php echo $mostrar['fecha_nac'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Contacto Acudiente:</strong> <span><?php echo $mostrar['tel_acudiente'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Tipo de Paquete de Clases:</strong> <span><?php echo $mostrar['paquete'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Correo</strong><span><?php echo $mostrar['email'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Notas</strong><span><?php echo $mostrar['observaciones'] ?></span></li>
           </ul>
         </div>
       </div>
-      
+      <?php 
+	        }
+	              ?>
     </div>
   </div>
 
@@ -99,11 +119,13 @@
 <br>
 <br>
 <div class="container">
+  <form action="updateClases.php" method="POST" enctype="multipart/form-data" role="form"> 
 
   <button class="btn btn-warning" id="desplegar" onclick="showPackage();">Agregar Paquete de Clases</button>
        
   <br>
   <br>
+  <input name="id" class="form-control" id="name" type="hidden" value="<?php echo $variable?>">
   <div class="container" id="agregarPaquete">
     <button class="btn btn-outline-warning" id="desplegar" onclick="hidePackage();">Ocultar</button>
     <br>
@@ -113,7 +135,7 @@
       <div class="col-md-4"> </div>
         <div class="col-md-4" style="align: center">
           <label>Fecha de Inicio</label>
-          <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
+          <input type="date" class="form-control" name="dateBegin" id="dateComienzo" required>
           <br>
         </div>
 
@@ -123,7 +145,7 @@
         <div class="col-md-4"> </div>
           <div class="col-md-4" style="align: center">
             <label>Fecha de Finalización</label>
-            <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
+            <input type="date" class="form-control" name="dateEnd" id="dateFinish" required>
             <br>
           </div>
 
@@ -132,14 +154,13 @@
       <div class="row">
         <div class="col-md-4"> </div>
           <div class="col-md-4" style="align: center">
-            <label>Tipo de Paquete de Clases</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Seleccionar categoría</option>
-              <option value="1">1 Clase</option>
-              <option value="2">2 Clase</option>
-              <option value="3">3 Clase</option>
-              <option value="4">4 Clase</option> 
-            </select>
+          <label>Paquete de Clases</label>
+          <select class="form-select" aria-label="Default select example" name = "paquete">
+            <option value="4">4 clases</option>
+            <option value="6">6 Clases</option>
+            <option value="8">8 Clases</option>
+            <option value="16">16 Clases</option> 
+          </select>
             <br>
           </div>
 
@@ -148,7 +169,7 @@
             <div class="col-md-4" style="align: center">
               <label>Notas</label>
               <br>
-              <textarea name="textarea" rows="5" cols="50" placeholder="Agregue notas adicionales si lo requiere"></textarea>
+              <input type="text" class="form-control" name="observaciones" id="observaciones">
               <br>
         </div>
 
@@ -156,10 +177,12 @@
 
       <div class="rowCenter">
         <br>
-        <input class="btn btn-warning" type="submit" value="Actualizar Paquete de Clases"></input>
+        <input  class="btn btn-warning" name="update_class" type="submit" value="Actualizar Paquete de Clases"></input>
+        <a href="updateClases.php">a</a>
         <br>
       </div>
 
+      </form>
   </div>
   <br>
 

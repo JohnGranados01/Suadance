@@ -1,6 +1,6 @@
 <?php 
 
-	$conexion=mysqli_connect('localhost','root','','suadance');
+require 'database.php';
 
  ?>
 <!DOCTYPE html>
@@ -124,15 +124,17 @@
               //$sql="SELECT * from students WHERE categoria=juvenilA";
               //$sql="SELECT * from students WHERE categoria=golden";
               $sql="SELECT * from students WHERE categoria='prejuvenil'";
-              $result=mysqli_query($conexion,$sql);
+              $stm = $conn->query($sql);
 
-              while($mostrar=mysqli_fetch_array($result)){
+              foreach($stm as $mostrar){
+                $var=$mostrar['Id'];
+                
               ?> 
                 <tr>
                 
-                <td><a href="infoStudent.php"><img src="<?php echo $mostrar['foto'] ?>" class="img-fluid" alt=""></a></td>
-                <td><a href="infoStudent.php"><?php echo $mostrar['Nombre'] ?></a></td>
-                <td><a href="infoStudent.php"><?php echo $mostrar['Apellidos'] ?></a></td>
+                <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><img src="<?php echo $mostrar['foto'] ?>" class="img-fluid"></a></td>
+                <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><?php echo $mostrar['Nombre'] ?></a></td>
+                <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><?php echo $mostrar['Apellidos'] ?></a></td>
                 <td><?php echo $mostrar['categoria'] ?></td>
                 
                 </tr>
