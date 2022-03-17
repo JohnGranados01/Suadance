@@ -111,18 +111,44 @@ require 'database.php';
   <div class="container">
     <form class="form-horizontal" action="registerStudent.php" method="post" enctype="multipart/form-data" role="form" style=" width: 35vw; margin-left : 23.5vw;">
       <div class="row">
-        <div class="col-md-12 form-group" id="cont_webcam">
+        <div class="col-md-12 form-group" id="cont_webcam" style="display:none">
           <video src="" id="video" playsinline autoplay></video>
           <canvas id="canvas" name="canvas" width="400px" height="300px"></canvas>
-        </div>
-        <div class="col-md-12 form-group" id="cont_webcam" id="mensaje">
           <center>
-            <input type="button" id="capturar" onclick="void capturar_foto()" value="tomar foto"></input>
-            <button type="button" id="btn_guardar" onclick="void guardar_foto()" style="display:none;">Guardar foto</button>
+           <input class="cuadrofoto" type="button" id="capturar" onclick="void capturar_foto()" value="tomar foto"></input>
+            <button type="button" id="btn_guardar" onclick="void guardar_foto()" >Guardar foto</button>
 
           </center>
         </div>
         <div class="col-md-12 form-group">
+          <label>Fuente de la foto del estudiante</label>
+          <select class="form-select" aria-label="Default select example" name="EntradaFoto" onclick="toggle(this)">
+            <option value="Seleccion">Seleccione opción</option>
+            <option value="camara">Cámara</option>
+            <option value="pc">Ordenador</option>
+          </select>
+        </div>
+        <script>
+          function toggle(o) {
+          var el=document.getElementById('ordenador');
+          var e2=document.getElementById('cont_webcam');
+          var e3=document.getElementById('mensaje');
+          if (o.value=="pc") el.style.display="block";
+          if (o.value=="camara") el.style.display="none";
+          if (o.value=="Seleccion") el.style.display="none";
+          if (o.value=="pc") e2.style.display="none";
+          if (o.value=="camara") e2.style.display="block";
+          if (o.value=="Seleccion") e2.style.display="none";
+          }
+        </script>
+        <div class="col-md-12 form-group" id="cont_webcam" id="mensaje" style="display:none">
+          <center>
+           <input class="cuadrofoto" type="button" id="capturar" onclick="void capturar_foto()" value="tomar foto"></input>
+            <button type="button" id="btn_guardar" onclick="void guardar_foto()" >Guardar foto</button>
+
+          </center>
+        </div>
+        <div class="col-md-12 form-group" name="ordenador" id="ordenador"style="display:none">
           <label>Foto del estudiante</label>
           <input type="file" class="form-control" name="porfile" id="file">
           <br>
@@ -400,6 +426,27 @@ require 'database.php';
       <noscript><strong>We're sorry but vuecalendar doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
       <div id="app"></div>
 
+    </div>
+
+    <div class="section-title">
+      <br><br>
+      <p>BUSCAR LISTADO DE ASISTENCIA</p>
+      <br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4"> </div>
+      <div class="col-md-3" style="align: center">
+          
+          <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
+         
+      </div>
+      <div class="col-md-3" style="align: center">
+       
+        <button class="btn btn-warning" onclick="location.href='listaAsistencia.php'">Buscar</button>
+       
+    </div>
+    
     </div>
   </section><!-- End Clases Section -->
   

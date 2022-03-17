@@ -32,7 +32,8 @@ if(isset($_POST['Fin_registro'])){
             $package = $_POST['paquete'];
             $observaciones = $_POST['observaciones'];
             if($tipo != 'image/jpg' && $tipo != 'image/JPG' && $tipo !='image.jpeg' && $tipo != 'image/png' && $tipo != 'image.gif'){
-                echo '<script language="javascript">alert("No se seleccionó foto o no cumple con una extensión aceptada, el estudiante se registró sin foto.");</script>';
+                echo '<script language="javascript">alert("No se seleccionó foto o no cumple con una extensión aceptada, el estudiante se registró con una foto por defecto.");</script>';
+                $imagen = "fotos/sinfoto.jpg";
             }else{
                 $src = $carpeta.$nombre;
                 move_uploaded_file($ruta_provisional, $src);
@@ -41,15 +42,23 @@ if(isset($_POST['Fin_registro'])){
             if($dateEnd<$dateBegin){
                 echo '<script language="javascript">alert("La fecha de finalización no puede ser menor a la de comienzo, el estudiante no se registró");</script>';
             }else{
-                $consulta= "INSERT INTO students(foto, Id, Nombre, Apellidos, email, telefono, direccion, fecha_nac, categoria, nombre_acudiente, ape_acudiente, tel_acudiente, fecha_inicio, fecha_fin, paquete, observaciones) 
-                    VALUES ('$imagen','$id','$name','$apellido', '$email','$telefono','$direccion','$dateBirthday', '$category', '$nameParent','$lastNameParent','$phoneParent', '$dateBegin','$dateEnd', '$package', '$observaciones')";
-                $records = $conn->prepare($consulta);
-                $records->execute();
-                $results = $records->fetch(PDO::FETCH_ASSOC);
-                if($results){
-                    
+                $existeId = $conn->prepare("SELECT * FROM students WHERE Id=".$id);
+                $existeId->execute();
+                $result = $existeId->fetchAll(PDO::FETCH_ASSOC);
+                if($result){
+                    echo '<script language="javascript">alert("El id ya está registrado, no se puede agregar el estudiante con este id");</script>';
                 }else{
-                    echo '<script language="javascript">alert("El estudiante se ha registrado con éxito");</script>';
+                    $consulta= "INSERT INTO students(foto, Id, Nombre, Apellidos, email, telefono, direccion, fecha_nac, categoria, nombre_acudiente, ape_acudiente, tel_acudiente, fecha_inicio, fecha_fin, paquete, observaciones) 
+                        VALUES ('$imagen','$id','$name','$apellido', '$email','$telefono','$direccion','$dateBirthday', '$category', '$nameParent','$lastNameParent','$phoneParent', '$dateBegin','$dateEnd', '$package', '$observaciones')";
+                    $records = $conn->prepare($consulta);
+                    $records->execute();
+                    $results = $records->fetch(PDO::FETCH_ASSOC);
+                
+                    if(isset($results)){
+                        echo '<script language="javascript">alert("El estudiante se ha registrado con éxito");</script>';
+                    }else{
+                        echo '<script language="javascript">alert("El estudiante no se ha registrado con éxito");</script>';
+                    }
                 }
             }
     }else{

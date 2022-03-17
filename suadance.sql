@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3308
--- Tiempo de generación: 17-03-2022 a las 02:46:27
--- Versión del servidor: 5.7.28
--- Versión de PHP: 7.3.12
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 17-03-2022 a las 18:06:13
+-- Versión del servidor: 5.7.31
+-- Versión de PHP: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -55,31 +54,15 @@ CREATE TABLE IF NOT EXISTS `students` (
 
 INSERT INTO `students` (`foto`, `Id`, `Nombre`, `Apellidos`, `email`, `telefono`, `direccion`, `fecha_nac`, `categoria`, `nombre_acudiente`, `ape_acudiente`, `tel_acudiente`, `fecha_inicio`, `fecha_fin`, `paquete`, `observaciones`) VALUES
 ('fotos/gobernacion.png', '1057660667', 'Encuesta de prueba', 'fgh', '', 8765, 'Carrera 26 #9 - 151', '2022-03-21', 'juvenilB', '', '', '', '2022-03-09', '2022-03-02', '', ''),
-('', '876', 'Yulieth Cristina HuÃ©rfano PÃ©rez', 'Suarez BarÃ³n', '', 8765, 'Carrera 26 #9 - 151', '2022-03-03', 'funny', '', '', '', '2022-03-16', '2022-03-09', '16', ''),
-('', '9999', 'FerrelÃ©ctricos ValdÃ©z', 'Suarez BarÃ³n', '', 8765, 'Carrera 26 #9 - 151', '2022-03-16', 'funny', '', '', '', '2022-03-02', '2022-03-23', '4', '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `usuario` (`usuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `usuario`, `password`) VALUES
-(2, 'john', '$2y$10$9MfMyihK8x29R4cakt.pQ.aVaPgAL9gjGYUxyZz9Fevq2tblqBU6u'),
-(14, 'lina', '$2y$10$e5OMSvpnzLMXz.wxoY7J0.2tAHLTLm7oOile0NVw2zf8emgbz/OcW');
+('', '876', 'Anibal', 'Rodriguez', '', 8765, 'Carrera 26 #9 - 151', '2022-03-11', 'funny', '', '', '', '2022-03-09', '2022-03-24', '4', ''),
+('', '2222', 'Yulieth Cristina HuÃ©rfano PÃ©rez', 'RiaÃ±o Herrera', '', 678, 'Carrera 26 #9 - 151', '2022-03-10', 'funny', '', '', '', '2022-03-03', '2022-03-31', '4', ''),
+('fotos/banrep.png', '1002760550', 'Jyson', 'bu', '', 678, 'Carrera 26 #9 - 151', '2022-03-02', 'funny', '', '', '', '2022-03-02', '2022-03-31', '16', 'jhbnm'),
+('', '1057604823', 'Steven', 'Amado', '', 678, 'Carrera 26 #9 - 151', '2022-03-16', 'prejuvenil', '', '', '', '2022-03-02', '2022-03-29', '8', ''),
+('fotos/academia.png', '11111', 'dfgh', 'fgh', 'Cristihu@hotmail.com', 7724816, 'Carrera 26 #9 - 151', '2022-03-02', 'funny', '', '', '', '2022-03-01', '2022-03-22', '8', ''),
+('', '3989', 'Diego', 'Grisales', 'diego.g@misena.edu.co', 7724816, 'Carrera 26 #9 - 151', '2022-03-02', 'junior', '', '', '', '2022-03-03', '2022-03-23', '6', ''),
+('', '1818', 'Yulieth HuÃ©rfano', 'Amado', 'Cristihu@hotmail.com', 8765, 'Carrera 26 #9 - 151', '2022-03-10', 'funny', '', '', '', '2022-03-10', '2022-03-31', '4', ''),
+('', '9878', 'Encuesta de prueba', 'Amado', '', 8765, 'Carrera 26 #9 - 151', '2022-03-11', 'funny', '', '', '', '2022-03-10', '2022-04-07', '4', ''),
+('fotos/sinfoto.jpg', '19191', 'john', 'Suarez BarÃ³n', 'Cristihu@hotmail.com', 7724816, 'Carrera 26 #9 - 151', '2022-03-02', 'funny', '', '', '', '2022-03-03', '2022-03-30', '4', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

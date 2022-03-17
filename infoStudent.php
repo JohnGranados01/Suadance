@@ -89,7 +89,7 @@ require 'database.php';
         <div class="col-lg-6">
           <ul>
             <li><i class="bi bi-chevron-right"></i> <strong>Documento de Identidad:</strong> <span><?php echo $mostrar['Id'] ?></span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Nombre:</strong> <span>M<?php echo $mostrar['Nombre'] ?></span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Nombre:</strong> <span><?php echo $mostrar['Nombre'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Apellido:</strong> <span><?php echo $mostrar['Apellidos'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Telefono:</strong> <span><?php echo $mostrar['telefono'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Estado:</strong> <span>Activo</span></li>
