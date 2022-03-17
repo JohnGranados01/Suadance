@@ -8,7 +8,7 @@ require 'database.php';
 
     
 
-    if (!empty($_POST['usuario']) && !empty($_POST['password'])) {
+      if (!empty($_POST['usuario']) && !empty($_POST['password'])) {
         $records = $conn->prepare('SELECT id, usuario, password FROM users WHERE usuario = :usuario');
         $records->bindParam(':usuario', $_POST['usuario']);
         $records->execute();
@@ -20,7 +20,7 @@ require 'database.php';
           $_SESSION['user_id'] = $results['id'];
           header("Location: /Suadance");
         } else {
-          $message = 'Lo siento, no se encontraron coincidencias!';
+          $message = '<script> alert("Lo siento, no se encontraron coincidencias!")</script>';
         }
       }
 ?>

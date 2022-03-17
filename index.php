@@ -401,27 +401,6 @@ require 'database.php';
       <div id="app"></div>
 
     </div>
-
-    <div class="section-title">
-      <br><br>
-      <p>BUSCAR LISTADO DE ASISTENCIA</p>
-      <br>
-    </div>
-
-    <div class="row">
-      <div class="col-md-4"> </div>
-      <div class="col-md-3" style="align: center">
-          
-          <input type="date" class="form-control" name="dateBirthday" id="dateBirthday">
-         
-      </div>
-      <div class="col-md-3" style="align: center">
-       
-        <button class="btn btn-warning" onclick="location.href='listaAsistencia.php'">Buscar</button>
-       
-    </div>
-    
-    </div>
   </section><!-- End Clases Section -->
   
   <!-- Vendor JS Files -->

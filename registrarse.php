@@ -10,14 +10,13 @@
             $stmt->bindParam(':usuario', $_POST['usuario']);
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $stmt->bindParam(':password', $password);
-
             if ($stmt->execute()) {
-                $message = 'Usuario Creado Satisfactoriamente!';
+                $message = '<script> alert("Usuario Creado Satisfactoriamente!")</script>';
             } else {
-                $message = 'Lamentablemente no se pudeo crear el Usuario!';
+                $message = '<script> alert("Lamentablemente no se pudeo crear el Usuario! \nRevise que no este registrado ese nombre de usuario con anterioridad!")</script>';
             }
         }else{
-            $message = 'Las Contraseñas no coinciden!';
+            $message = '<script> alert("Las Contraseñas no coinciden!")</script>';
         }
         
 
