@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 11-03-2022 a las 09:04:24
--- Versión del servidor: 5.7.31
--- Versión de PHP: 7.3.21
+-- Servidor: 127.0.0.1:3308
+-- Tiempo de generación: 17-03-2022 a las 02:46:27
+-- Versión del servidor: 5.7.28
+-- Versión de PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -68,15 +69,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario` (`usuario`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`) VALUES
-(2, 'john', '$2y$10$9MfMyihK8x29R4cakt.pQ.aVaPgAL9gjGYUxyZz9Fevq2tblqBU6u');
+(2, 'john', '$2y$10$9MfMyihK8x29R4cakt.pQ.aVaPgAL9gjGYUxyZz9Fevq2tblqBU6u'),
+(14, 'lina', '$2y$10$e5OMSvpnzLMXz.wxoY7J0.2tAHLTLm7oOile0NVw2zf8emgbz/OcW');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
