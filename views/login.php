@@ -1,6 +1,6 @@
 <?php
 
-require 'database.php';
+require '../logic/database.php';
     session_start(); 
     if (isset($_SESSION['user_id'])) {
         header('Location: /Suadance');
@@ -31,9 +31,9 @@ require 'database.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iniciar Sesion</title>
-    <link rel="stylesheet" href="assets/css/estiloLogin.css">
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/img/Suadance sin fondo negro.ico" rel="logo Suadance">
+    <link rel="stylesheet" href="../assets/css/estiloLogin.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/img/Suadance sin fondo negro.ico" rel="logo Suadance">
   </head>
   <body>
 
@@ -42,7 +42,7 @@ require 'database.php';
     <?php endif; ?>
 
     <div class="login-box">
-      <img src="assets/img/logo sin letras.png" class="avatar" alt="Avatar Image">
+      <img src="../assets/img/logo sin letras.png" class="avatar" alt="Avatar Image">
       <h1>Iniciar Sesion</h1>
 
       <form action="login.php" method="POST">
@@ -55,13 +55,13 @@ require 'database.php';
           <button class="button" value="send" type="submit">Ingresar</button>
         </center>
       </form>
-      <img src="assets/img/Suadance sin fondo letras dorado.png" alt="">
+      <img src="../assets/img/Suadance sin fondo letras dorado.png" alt="">
       <center>
       <button class="button" type="submit" onclick="location.href='registrarse.php'">Registrarse</button>
       </center>
       
     </div>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
   </body>
 </html>

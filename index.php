@@ -1,6 +1,6 @@
 <?php
 
-require 'database.php';
+require 'logic/database.php';
     session_start();
 
     if(isset($_SESSION['user_id'])){
@@ -26,10 +26,10 @@ require 'database.php';
   <meta content="" name="description">
   <meta content="" name="keywords">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script type="text/javascript" src="showForm.js"></script>
-  <script type="text/javascript" src="permiso_camara.js"></script>
-  <script type="text/javascript" src="takephoto.js"></script>
-  <script type="text/javascript" src="listarEstudiantes.js"></script>
+  <script type="text/javascript" src="assets/js/showForm.js"></script>
+  <script type="text/javascript" src="assets/js/permiso_camara.js"></script>
+  <script type="text/javascript" src="assets/js/takephoto.js"></script>
+  <script type="text/javascript" src="assets/js/listarEstudiantes.js"></script>
 
   <!-- Calendar Stuff -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -91,7 +91,7 @@ require 'database.php';
           <li><a class="nav-link" href="#add">Registrar estudiante</a></li>
           <li><a class="nav-link" href="#category">Lista de Estudiantes</a></li>
           <li><a class="nav-link" href="#clases">Horarios y Clases</a></li>
-          <li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
+          <li><a href="logic/logout.php">Cerrar Sesi&oacute;n</a></li>
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -109,7 +109,7 @@ require 'database.php';
 <!-- ======= Add Student section ======= -->
 <section id="add" class="add">
   <div class="container">
-    <form class="form-horizontal" action="registerStudent.php" method="post" enctype="multipart/form-data" role="form" style=" width: 35vw; margin-left : 23.5vw;">
+    <form class="form-horizontal" action="views/registerStudent.php" method="post" enctype="multipart/form-data" role="form" style=" width: 35vw; margin-left : 23.5vw;">
       <div class="row">
         <div class="col-md-12 form-group" id="cont_webcam" style="display:none">
           <video src="" id="video" playsinline autoplay></video>
@@ -296,7 +296,7 @@ require 'database.php';
           <img src="assets/img/categorias/FunnyKids.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
             <br>
-            <a role="button" id="funnyKids" value="FunnyKidsuwu" onclick="selected('1');" href="listaFunny.php">Funny Kids</a>
+            <a role="button" id="funnyKids" value="FunnyKidsuwu" onclick="selected('1');" href="views/listaFunny.php">Funny Kids</a>
           
           </div>
         </div>
@@ -320,7 +320,7 @@ require 'database.php';
         <img src="assets/img/categorias/Junior.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="junior" onclick="selected('2');" href="listaJunior.php">Junior</a>
+          <a role="button" id="junior" onclick="selected('2');" href="views/listaJunior.php">Junior</a>
             
           </div>
         </div>
@@ -331,7 +331,7 @@ require 'database.php';
         <img src="assets/img/categorias/PreJuvenil.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="prejuvenil" onclick="selected('3');" href="listaPrejuvenil.php">Pre Juvenil</a>
+          <a role="button" id="prejuvenil" onclick="selected('3');" href="views/listaPrejuvenil.php">Pre Juvenil</a>
             
           </div>
         </div>
@@ -343,7 +343,7 @@ require 'database.php';
         <img src="assets/img/categorias/JuvenilBasico.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="juvenilB" onclick="selected('4');" href="listaJuvenilB.php">Juvenil Basico</a>
+          <a role="button" id="juvenilB" onclick="selected('4');" href="views/listaJuvenilB.php">buJuvenil Basico</a>
             
           </div>
         </div>
@@ -355,7 +355,7 @@ require 'database.php';
         <img src="assets/img/categorias/JuvenilIntermedio.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="juvenilInt" onclick="selected('5');" href="listaJuvenilInt.php">Juvenil Intermedio</a>
+          <a role="button" id="juvenilInt" onclick="selected('5');" href="views/listaJuvenilInt.php">Juvenil Intermedio</a>
             
           </div>
         </div>
@@ -367,7 +367,7 @@ require 'database.php';
         <img src="assets/img/categorias/Compania.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="compania" onclick="selected('6');" href="listaCompania.php">Compañia</a>
+          <a role="button" id="compania" onclick="selected('6');" href="views/listaCompania.php">Compañia</a>
             
           </div>
         </div>
@@ -390,7 +390,7 @@ require 'database.php';
         <img src="assets/img/categorias/Golden.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
           <br>
-          <a role="button" id="golden" onclick="selected('6');" href="listaGolden.php">Golden</a>
+          <a role="button" id="golden" onclick="selected('6');" href="views/listaGolden.php">Golden</a>
             
           </div>
         </div>
@@ -443,7 +443,7 @@ require 'database.php';
       </div>
       <div class="col-md-3" style="align: center">
        
-        <button class="btn btn-warning" onclick="location.href='listaAsistencia.php'">Buscar</button>
+        <button class="btn btn-warning" onclick="location.href='views/listaAsistencia.php'">Buscar</button>
        
     </div>
     
@@ -458,14 +458,14 @@ require 'database.php';
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="./listarEstudiante.js"></script>
+  <script src="assets/js/listarEstudiantes.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   
 <!-- si no esta registrado el usuario muestra esto -->
 <?php else: ?>
   <?php 
-      require 'home.html';
+      require 'html/home.html';
       ?>
     <?php endif; ?>
 </body>

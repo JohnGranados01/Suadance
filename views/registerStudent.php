@@ -1,6 +1,6 @@
 <?php
 
-include ("database.php");
+include ("../logic/database.php");
 $imagen='';
 if(isset($_POST['Fin_registro'])){
     if(strlen($_POST['id'])>=1 &&
@@ -70,6 +70,6 @@ if(isset($_POST['Fin_registro'])){
 ?>
 <script> 
 <!--
-window.location.replace('index.php'); 
+window.location.replace('../index.php'); 
 //-->
 </script>

@@ -6,5 +6,5 @@
 
     session_destroy();
 
-    header('location:/Suadance/home.html');
+    header('location:/Suadance/html/home.html');
 ?>

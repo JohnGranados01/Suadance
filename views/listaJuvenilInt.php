@@ -1,6 +1,6 @@
 <?php 
 
-require 'database.php';
+require '../logic/database.php';
 
  ?>
 <!DOCTYPE html>
@@ -12,14 +12,14 @@ require 'database.php';
   <title>Lista De Estudiantes</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <script type="text/javascript" src="listarEstudiantes.js"></script>
+  <script type="text/javascript" src="../assets/js/listarEstudiantes.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script type="text/javascript">
       function local(){
             var con = localStorage.getItem("Categoria");
             var  saved = parseInt(con);
-          //  alert(saved);
+            alert(saved);
             $.ajax({
             type: "POST",
             url: "index.php",
@@ -39,22 +39,22 @@ require 'database.php';
  
 
   <!-- Favicons -->
-  <link href="assets/img/Suadance sin fondo negro.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../assets/img/Suadance sin fondo negro.ico" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/listadoStyle.css" rel="stylesheet">
+  <link href="../assets/css/listadoStyle.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Personal - v4.7.0
@@ -68,8 +68,8 @@ require 'database.php';
 
   <!-- ======= Header ======= -->
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <img src="assets/img/regresar.png" width="150px">
+      <a href="../index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <img src="../assets/img/regresar.png" width="150px">
       </a>
       
       
@@ -82,7 +82,7 @@ require 'database.php';
 
       <div class="section-title">
         <h2>Listado</h2>
-        <p>Compañia</p>
+        <p>Juvenil Intermedio</p>
       </div>
 
      <div class="container">
@@ -107,7 +107,7 @@ require 'database.php';
 
 
               <?php
-               
+            
             //$num="uwu";
             //echo '<script>alert("HOLLLAA'.$num.'");</script>';
            
@@ -123,7 +123,7 @@ require 'database.php';
               //$sql="SELECT * from students WHERE categoria=juvenilM";
               //$sql="SELECT * from students WHERE categoria=juvenilA";
               //$sql="SELECT * from students WHERE categoria=golden";
-              $sql="SELECT * from students WHERE categoria='juvenilA'";
+              $sql="SELECT * from students WHERE categoria='juvenilM'";
               $stm = $conn->query($sql);
 
               foreach($stm as $mostrar){
@@ -171,16 +171,16 @@ require 'database.php';
 
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
 </body>
 

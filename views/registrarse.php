@@ -1,5 +1,5 @@
 <?php
-    require 'database.php';
+    require '../logic/database.php';
 
     $message='';
 
@@ -30,8 +30,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/estiloLogin.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/estiloLogin.css">
 </head>
 <body>
 
@@ -45,7 +45,7 @@
     <?php endif; ?>
 
     <div class="login-box">
-      <img src="assets/img/Suadance sin fondo.png" class="avatar" alt="Avatar Image">
+      <img src="../assets/img/Suadance sin fondo.png" class="avatar" alt="Avatar Image">
       <h1>Registrarse</h1> 
       <form action="registrarse.php" method="POST">
           <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingrese su usuario" required>
@@ -55,11 +55,11 @@
               <button class="button" type="submit">Registrar</button>
           </center>
       </form>
-      <img src="assets/img/Suadance sin fondo letras dorado.png" alt="">
+      <img src="../assets/img/Suadance sin fondo letras dorado.png" alt="">
       <center>
       <button class="button" type="submit" onclick="location.href='login.php'">Ingresar</button>
       </center>
     </div>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
