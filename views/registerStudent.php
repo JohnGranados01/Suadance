@@ -1,7 +1,7 @@
 <?php
-
 include ("../logic/database.php");
 $imagen='';
+
 if(isset($_POST['Fin_registro'])){
     if(strlen($_POST['id'])>=1 &&
         strlen($_POST['name'])>=1 &&
@@ -31,14 +31,17 @@ if(isset($_POST['Fin_registro'])){
             $dateEnd = $_POST['dateEnd'];
             $package = $_POST['paquete'];
             $observaciones = $_POST['observaciones'];
-            if($tipo != 'image/jpg' && $tipo != 'image/JPG' && $tipo !='image.jpeg' && $tipo != 'image/png' && $tipo != 'image.gif'){
-                echo '<script language="javascript">alert("No se seleccionó foto o no cumple con una extensión aceptada, el estudiante se registró con una foto por defecto.");</script>';
-                $imagen = "fotos/sinfoto.jpg";
-            }else{
+
+            if(strlen($nombre)>0){
                 $src = $carpeta.$nombre;
                 move_uploaded_file($ruta_provisional, $src);
                 $imagen = "fotos/".$nombre;
+            
+            }else{
+                echo '<script language="javascript">alert("No se seleccionó foto o no es válida, el estudiante se registró con una foto por defecto.");</script>';
+                $imagen = "fotos/sinfoto.jpg";
             }
+
             if($dateEnd<$dateBegin){
                 echo '<script language="javascript">alert("La fecha de finalización no puede ser menor a la de comienzo, el estudiante no se registró");</script>';
             }else{
@@ -48,6 +51,7 @@ if(isset($_POST['Fin_registro'])){
                 if($result){
                     echo '<script language="javascript">alert("El id ya está registrado, no se puede agregar el estudiante con este id");</script>';
                 }else{
+                    
                     $consulta= "INSERT INTO students(foto, Id, Nombre, Apellidos, email, telefono, direccion, fecha_nac, categoria, nombre_acudiente, ape_acudiente, tel_acudiente, fecha_inicio, fecha_fin, paquete, observaciones) 
                         VALUES ('$imagen','$id','$name','$apellido', '$email','$telefono','$direccion','$dateBirthday', '$category', '$nameParent','$lastNameParent','$phoneParent', '$dateBegin','$dateEnd', '$package', '$observaciones')";
                     $records = $conn->prepare($consulta);
@@ -69,7 +73,5 @@ if(isset($_POST['Fin_registro'])){
 }
 ?>
 <script> 
-<!--
 window.location.replace('../index.php'); 
-//-->
 </script>

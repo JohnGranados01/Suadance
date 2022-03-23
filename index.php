@@ -28,8 +28,8 @@ require 'logic/database.php';
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script type="text/javascript" src="assets/js/showForm.js"></script>
   <script type="text/javascript" src="assets/js/permiso_camara.js"></script>
-  <script type="text/javascript" src="assets/js/takephoto.js"></script>
   <script type="text/javascript" src="assets/js/listarEstudiantes.js"></script>
+  <script type="text/javascript" src="assets/js/webcam.min.js"></script>
 
   <!-- Calendar Stuff -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -112,13 +112,17 @@ require 'logic/database.php';
     <form class="form-horizontal" action="views/registerStudent.php" method="post" enctype="multipart/form-data" role="form" style=" width: 35vw; margin-left : 23.5vw;">
       <div class="row">
         <div class="col-md-12 form-group" id="cont_webcam" style="display:none">
-          <video src="" id="video" playsinline autoplay></video>
-          <canvas id="canvas" name="canvas" width="400px" height="300px"></canvas>
+          <video src="" id="video" playsinline autoplay style="width:480px"></video>
+          <canvas id="canvas" name="canvas" width="480px" height="360px"></canvas>
           <center>
-           <input class="cuadrofoto" type="button" id="capturar" onclick="void capturar_foto()" value="tomar foto"></input>
+            <button type="button" id="capturar" name="captura" onclick="void capturar_foto()">Tomar foto</buttob>
             <button type="button" id="btn_guardar" onclick="void guardar_foto()" >Guardar foto</button>
-
           </center>
+        </div>
+        <div class="col-md-12 form-group">
+          <div id="my_camera">
+
+          </div>
         </div>
         <div class="col-md-12 form-group">
           <label>Fuente de la foto del estudiante</label>
@@ -270,7 +274,7 @@ require 'logic/database.php';
       <div class="d-grid gap-2 col-12 mx-auto">
         <br>
         <br>
-        <input  class="btn btn-warning" name="Fin_registro" type="submit" value="Finalizar registro"></input>
+        <input  class="btn btn-warning" name="Fin_registro" type="submit" onclick="void guardar_foto()" value="Finalizar registro"></input>
       </div>
     </form>
   </div>
@@ -461,6 +465,7 @@ require 'logic/database.php';
   <script src="assets/js/listarEstudiantes.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript" src="assets/js/takephoto.js"></script>
   
 <!-- si no esta registrado el usuario muestra esto -->
 <?php else: ?>

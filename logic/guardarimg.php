@@ -5,7 +5,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH'])){
     if(strlen($imagen)>0){
         $img_a_guardar = base64_decode(preg_replace('/^[^,]*,/', '', $_POST['captura']));
         $nombre_foto = "captura".uniqid().".png";
-        $ruta_foto = "./".$nombre_foto;
+        $ruta_foto = "../views/fotos/".$nombre_foto;
 
         file_put_contents($ruta_foto, $img_a_guardar);
 
@@ -20,7 +20,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH'])){
 
     //Empaquetar JSON
     $resp=[
-        "error" => $error,
+        "error" =>$error,
         "mensaje"=>$mensaje,
         "datos"=>$datos
     ];
