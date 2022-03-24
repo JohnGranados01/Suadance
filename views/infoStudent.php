@@ -49,7 +49,7 @@ require '../logic/database.php';
   <!-- ======= Header ======= -->
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="../index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <img src="../assets/img/regresar.png" width="150">
+        <img src="fotos/regresar.png" width="150">
       </a>
       
       
@@ -81,7 +81,7 @@ require '../logic/database.php';
        // echo $var;
       ?>
     <div class="col-lg-4" data-aos="fade-right">
-      <img src="<?php echo $mostrar['foto'] ?>" class="img-fluid" alt="">
+      <img src="<?php echo $mostrar['foto'] ?>" width="300px" class="img-fluid" alt="">
     </div>
     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
       
@@ -92,7 +92,32 @@ require '../logic/database.php';
             <li><i class="bi bi-chevron-right"></i> <strong>Nombre:</strong> <span><?php echo $mostrar['Nombre'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Apellido:</strong> <span><?php echo $mostrar['Apellidos'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Telefono:</strong> <span><?php echo $mostrar['telefono'] ?></span></li>
-            <li><i class="bi bi-chevron-right"></i> <strong>Estado:</strong> <span>Activo</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> 
+            <span>
+              <?php
+            
+              $dateNac = DateTime::createFromFormat("Y-m-d", $mostrar['fecha_nac']);
+              $hoy = new DateTime();
+              $edad = date_diff($hoy,$dateNac);
+              
+             
+              echo $edad->format("%y")
+              
+              ?>
+            </span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Estado:</strong>
+            <span>
+            <?php
+            $datenew = DateTime::createFromFormat("Y-m-d", $mostrar['fecha_fin']);
+            if($datenew>$hoy){
+                    echo 'Activo';
+                  }
+                  else{
+                    echo 'Inactivo';
+                  }
+                  
+            ?>
+            </span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Inicio de Paquete de Clases actual:</strong> <span><?php echo $mostrar['fecha_inicio'] ?></span></li>
             <li><i class="bi bi-chevron-right"></i> <strong>Fin de Paquete de Clases actual:</strong> <span><?php echo $mostrar['fecha_fin'] ?></span></li>
           </ul>
@@ -119,7 +144,7 @@ require '../logic/database.php';
 <br>
 <br>
 <div class="container">
-  <form action="../logic/updateClases.php" method="POST" enctype="multipart/form-data" role="form"> 
+  <form action="updateClases.php" method="POST" enctype="multipart/form-data" role="form"> 
 
   <button class="btn btn-warning" id="desplegar" onclick="showPackage();">Agregar Paquete de Clases</button>
        
@@ -178,7 +203,7 @@ require '../logic/database.php';
       <div class="rowCenter">
         <br>
         <input  class="btn btn-warning" name="update_class" type="submit" value="Actualizar Paquete de Clases"></input>
-        <a href="../logic/updateClases.php">a</a>
+        
         <br>
       </div>
 
@@ -198,16 +223,16 @@ require '../logic/database.php';
     }
   </script>
   <!-- Vendor JS Files -->
-  <script src="../assets/vendor/purecounter/purecounter.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   
   <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
   
 
 </body>

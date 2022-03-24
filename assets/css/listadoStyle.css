@@ -1043,9 +1043,9 @@ body {
   .credits a:hover {
     color: #fff;
   } 
-  img { 
-    max-height: 400px; 
-    max-width:500px;
+  img .tableImg { 
+    width: 50px;
+    height: 50px;
   }
   
   .table{

@@ -39,7 +39,7 @@ if(isset($_POST['Fin_registro'])){
             
             }else{
                 echo '<script language="javascript">alert("No se seleccionó foto o no es válida, el estudiante se registró con una foto por defecto.");</script>';
-                $imagen = "fotos/sinfoto.jpg";
+                $imagen = "fotos/sinfoto.jpeg";
             }
 
             if($dateEnd<$dateBegin){

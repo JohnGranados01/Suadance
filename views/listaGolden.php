@@ -69,7 +69,7 @@ require '../logic/database.php';
   <!-- ======= Header ======= -->
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="../index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <img src="../assets/img/regresar.png" width="150px">
+        <img src="fotos/regresar.png" width="150">
       </a>
       
       
@@ -132,10 +132,24 @@ require '../logic/database.php';
               ?> 
                 <tr>
                 
-                <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><img src="<?php echo $mostrar['foto'] ?>" class="img-fluid"></a></td>
+                <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><img src="<?php echo $mostrar['foto'] ?>" width="50px"></a></td>
                 <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><?php echo $mostrar['Nombre'] ?></a></td>
                 <td><a href="infoStudent.php?estudiante=<?php echo $var; ?>"><?php echo $mostrar['Apellidos'] ?></a></td>
-                <td><?php echo $mostrar['categoria'] ?></td>
+                <td>
+
+                  <?php 
+                  $datenew = DateTime::createFromFormat("Y-m-d", $mostrar['fecha_fin']);
+                  $hoy = new DateTime();
+                  if($datenew>$hoy){
+                    echo 'Activo';
+                  }
+                  else{
+                    echo 'Inactivo';
+                  }
+                  
+                  ?>
+
+                </td>
                 
                 </tr>
                 <?php 
